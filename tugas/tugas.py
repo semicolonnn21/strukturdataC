@@ -6,4 +6,4 @@ menit = menit + durasi
 jam = jam + menit // 60
 menit = menit % 60
 
-print("Acara selesai pukul", jam,":",menit)
+print("selesai pukul", jam,":",menit)
