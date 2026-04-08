@@ -42,8 +42,8 @@ elif menu == "Word Count":
     st.title("Word Count Komentar")
 
     text_input = st.text_area("Masukkan komentar sosial media:", 
-                              " ")
-
+                                " ")
+                              
     # Preprocessing (data cleaning & normalisasi data)
     words = text_input.lower().split()
     words = [word.strip(".,!?()-_=+/") for word in words]
