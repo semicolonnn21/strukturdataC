@@ -16,8 +16,8 @@ Program ini berisi:
     - streamlit run word_count.py
 
 ## CARA MENGHENTIKAN PROGRAM 
-Untuk menghentikan program streamlit, tekan: CTRL + C
+Untuk menghentikan program streamlit yang sedang berjalan, tekan: `CTRL + C` pada terminal
 
 ## CATATAN 
 - Program akan berjalan di browser (biasanya di http://localhost:8501)
-- Pastikan terminal tetap terbuka saat program berjalan 
+- Pastikan terminal tetap terbuka saat program berjalan.
