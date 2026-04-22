@@ -1,4 +1,4 @@
-# TUGAS STRUKTUR DATA 
+# TUGAS 1 STRUKTUR DATA 
 
 **Nama** : Much. Mentari Adriansyah  
 **NIM** : 2530801073  
