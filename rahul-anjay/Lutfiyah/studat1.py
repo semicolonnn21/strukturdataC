@@ -16,7 +16,7 @@ if pilih_menu == "Operasi Set":
     setA_input = st.text_input("Masukkan elemen Set A (pisahkan dengan koma)", "2,3,5,7")
     setB_input = st.text_input("Masukkan elemen Set B (pisahkan dengan koma)", "3,4,5,6")
 
-    # Konversi input menjadi set   
+    # Konversi input menjadi set
     setA = set(setA_input.split(","))
     setB = set(setB_input.split(","))
 
