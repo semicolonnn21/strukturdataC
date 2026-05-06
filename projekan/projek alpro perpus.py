@@ -1,41 +1,36 @@
-# SISTEM MANAJEMEN PERPUSTAKAAN
-# Program console untuk mengelola data buku dengan fitur CRUD
-# serta peminjaman dan pengembalian buku
-
-# ===============================================
-# STRUCT / CLASS BUKU
-# ===============================================
 class Buku:
     def __init__(self, code, judul, pengarang, genre, stok=1, dipinjam=0):
         self.code = code
         self.judul = judul
         self.pengarang = pengarang
         self.genre = genre
-        self.total = stok        # jumlah tersedia
-        self.dipinjam = dipinjam      # jumlah yang sedang dipinjam
+        self.total = stok    
+        self.dipinjam = dipinjam      
 
     def tersedia(self):
         return self.total - self.dipinjam
-# ===============================================
-# DATABASE (LIST)
-# ===============================================
+
 daftar = [
-    Buku(101, "Laskar Pelangi", "Andrea Hirata", "Fiksi", stok=7, dipinjam=3), 
-    Buku(201, "Filosofi Teras", "Henry Manampiring", "Non-Fiksi", stok=9, dipinjam=1)   
+    Buku(101, "Laskar Pelangi", "Andrea Hirata", "Fiksi", stok=7, dipinjam=3),
+    Buku(102, "Filosofi Teras", "Henry Manampiring", "Non-Fiksi", stok=9, dipinjam=1),
+    Buku(103, "Bumi Manusia", "Pramoedya Ananta Toer", "Sejarah Fiksi", stok=5, dipinjam=2),
+    Buku(104, "Negeri 5 Menara", "A. Fuadi", "Fiksi Remaja", stok=8, dipinjam=4),
+    Buku(105, "Sapiens", "Yuval Noah Harari", "Non-Fiksi", stok=6, dipinjam=2),
+    Buku(106, "Perahu Kertas", "Dee Lestari", "Romantis", stok=10, dipinjam=5),
+    Buku(107, "Atomic Habits", "James Clear", "Pengembangan Diri", stok=12, dipinjam=3),
+    Buku(108, "Ayat-Ayat Cinta", "Habiburrahman El Shirazy", "Religi", stok=4, dipinjam=1),
+    Buku(109, "Rich Dad Poor Dad", "Robert T. Kiyosaki", "Keuangan", stok=7, dipinjam=2),
+    Buku(110, "Cantik Itu Luka", "Eka Kurniawan", "Magical Realism", stok=3, dipinjam=1),
+    Buku(111, "Deep Work", "Cal Newport", "Produktivitas", stok=5, dipinjam=0),
+    Buku(112, "Sang Pemimpi", "Andrea Hirata", "Fiksi Remaja", stok=9, dipinjam=6)
 ]
 
-# ===============================================
-# TOOLS
-# ===============================================
 def line(c, n):
     print(c * n)
 
 def bersihkan():
     print("\033[2J\033[1;1H", end="")  
 
-# ===============================================
-# FITUR SISTEM
-# ===============================================
 def tambah():
     bersihkan()
 
@@ -73,16 +68,16 @@ def tampilSemua():
         return
 
     print("DAFTAR BUKU")
-    line("=", 110)
+    line("=", 120)
 
-    print(f"{'Kode':<8}{'Judul':<30}{'Pengarang':<25}{'Genre':<15}{'Stok':<7}{'Dipinjam':<11}{'Status':<12}")
-    line("=", 110)
+    print(f"{'Kode':<8}{'Judul':<30}{'Pengarang':<30}{'Genre':<25}{'Stok':<7}{'Dipinjam':<11}{'Status':<12}")
+    line("=", 120)
 
     for b in daftar:
         status = "Kosong" if b.tersedia() == 0 else ("Tersedia" if b.tersedia() > 0 else "Tidak tersedia")
-        print(f"{b.code:<8}{b.judul:<30}{b.pengarang:<25}{b.genre:<15}{b.total:<7}{b.dipinjam:<11}{status:<12}")
+        print(f"{b.code:<8}{b.judul:<30}{b.pengarang:<30}{b.genre:<25}{b.total:<7}{b.dipinjam:<11}{status:<12}")
 
-    line("=", 110)
+    line("=", 120)
 
 def cari(kode):
     for i in range(len(daftar)):
@@ -179,7 +174,6 @@ def update():
             if stok_baru < 0:
                 print("Stok tidak boleh negatif. Perubahan stok dibatalkan.")
             else:
-                # Pastikan stok minimal sama dengan jumlah yang sedang dipinjam
                 if stok_baru < daftar[i].dipinjam:
                     print("Stok baru tidak boleh kurang dari jumlah yang sedang dipinjam.")
                 else:
@@ -204,18 +198,10 @@ def hapus():
         print("Buku tidak ditemukan.")
         return
 
-    # Opsional: cek jika masih ada yang dipinjam, minta konfirmasi (sederhana: tolak hapus)
-    if daftar[i].dipinjam > 0:
-        print("Buku masih memiliki salinan yang dipinjam. Tidak dapat dihapus.")
-        return
-
     daftar.pop(i)
 
     print("Buku berhasil dihapus.")
 
-# ===============================================
-# PROGRAM UTAMA
-# ===============================================
 def main():
 
     while True:
