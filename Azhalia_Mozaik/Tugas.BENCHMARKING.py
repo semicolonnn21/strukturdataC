@@ -80,7 +80,6 @@ for n in ukuran_data:
         
         rata2 = sum(hasil_waktu) / 3
         
-        # Format di bawah ini sudah diperbaiki dan dipastikan sejajar
         print(f"| {n:<10} | {nama:<18} | {hasil_waktu[0]:<12.5f} | {hasil_waktu[1]:<12.5f} | {hasil_waktu[2]:<12.5f} | {rata2:<12.5f} |")
     
     print("-" * 95)
