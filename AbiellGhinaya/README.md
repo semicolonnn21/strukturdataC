@@ -24,6 +24,19 @@ Proyek ini berisi kumpulan aplikasi interaktif yang dibangun menggunakan Python 
 - **Logika**: Implementasi Dictionary/Hash Map untuk memetakan kata ke jumlah kemunculannya.
 - **File**: `word_count.py`
 
+### 5. Sorting Algorithm Benchmarking
+- **Fitur**: Membandingkan kecepatan eksekusi antara **Bubble Sort**, **Merge Sort**, dan **Quick Sort**.
+- **Konsep**: Analisis kompleksitas waktu ($O(n^2)$ vs $O(n \log n)$) menggunakan data acak dalam berbagai skala (10, 100, 1000 data).
+- **Logika**: 
+    - Melakukan *stress test* sebanyak 3 kali per ukuran data untuk menghitung nilai rata-rata.
+    - Menggunakan fungsi `.copy()` untuk memastikan setiap algoritma mengurutkan kumpulan data yang identik (fair test).
+    - Penyesuaian `sys.setrecursionlimit` untuk mendukung kedalaman rekursi pada algoritma Quick Sort.
+- **Visualisasi**: 
+    - Tabel performa presisi dalam satuan detik.
+    - Grafik batang berbasis teks (Bar Chart) langsung di terminal.
+    - Data ekspor yang siap digunakan untuk pembuatan Diagram Garis (Line Chart) eksternal.
+- **File**: `sorting_benchmark.py`
+
 ## 🛠️ Cara Menjalankan
 
 Pastikan Anda memiliki Python terinstal, kemudian ikuti langkah berikut:
