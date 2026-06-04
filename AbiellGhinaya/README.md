@@ -24,10 +24,31 @@ Proyek ini berisi kumpulan aplikasi interaktif yang dibangun menggunakan Python 
 - **Logika**: Implementasi Dictionary/Hash Map untuk memetakan kata ke jumlah kemunculannya.
 - **File**: `word_count.py`
 
+### 5. Sorting Algorithm Benchmarking
+- **Fitur**: Membandingkan kecepatan eksekusi antara **Bubble Sort**, **Merge Sort**, dan **Quick Sort**.
+- **Konsep**: Analisis kompleksitas waktu ($O(n^2)$ vs $O(n \log n)$) menggunakan data acak dalam berbagai skala (10, 100, 1000 data).
+- **Logika**: 
+    - Melakukan *stress test* sebanyak 3 kali per ukuran data untuk menghitung nilai rata-rata.
+    - Menggunakan fungsi `.copy()` untuk memastikan setiap algoritma mengurutkan kumpulan data yang identik.
+    - Penyesuaian `sys.setrecursionlimit` untuk mendukung kedalaman rekursi pada algoritma Quick Sort.
+- **File**: `sorting_benchmark.py`
+
+### 6. Binary Search Tree (BST) Visualizer & Traversal
+- **Fitur**: Visualisasi struktur pohon biner dan tiga metode penelusuran (traversal).
+- **Konsep**: Implementasi rekursif di mana setiap node kiri memiliki nilai lebih kecil dari induk, dan node kanan memiliki nilai lebih besar.
+- **Logika**:
+    - **Insert Rekursif**: Mekanisme "oper-operan" data dari Root ke bawah hingga menemukan posisi `None` yang tepat sesuai aturan nilai.
+    - **Traversal Framework**: Implementasi fungsi tunggal untuk mengeksekusi **Preorder**, **Inorder**, dan **Postorder** dengan memanipulasi posisi *pencatatan* (append) relatif terhadap pemanggilan rekursif.
+    - **Validasi**: Analisis hasil traversal di mana mode *Inorder* digunakan untuk memverifikasi kebenaran struktur data (hasil harus terurut secara numerik).
+- **Visualisasi**: Representasi hierarki pohon menggunakan blok kode (`st.code`) dengan font monospace untuk menjaga akurasi visual dahan dan node.
+- **File**: `bst_app.py`
+
 ## 🛠️ Cara Menjalankan
 
-Pastikan Anda memiliki Python terinstal, kemudian ikuti langkah berikut:
-
-1. **Buat virtual environment:**
+1. **Persiapkan Lingkungan:**
+   Pastikan Python sudah terinstal di sistem Anda.
+   
+2. **Install Dependensi:**
+   Buka terminal **sel-sel ngawi** dan jalankan:
    ```bash
-   python -m venv env
+   pip install streamlit
