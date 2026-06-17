@@ -111,3 +111,4 @@ def draw_tree(root):
 
 st.subheader("🌿 Visualisasi Tree")
 st.graphviz_chart(draw_tree(tree.root))
+
