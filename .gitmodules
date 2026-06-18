@@ -1,3 +1,6 @@
 [submodule "kelompok-4/uas-strukturdataC"]
 	path = kelompok-4/uas-strukturdataC
 	url = https://github.com/bratayudha07/uas-strukturdataC.git
+[submodule "kelompok-4"]
+	path = kelompok-4
+	url = https://github.com/bratayudha07/uas-strukturdataC.git
