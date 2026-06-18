@@ -1,7 +1,3 @@
-# app.py
-# Benchmark Struktur Data: list, BST, HashTable, AVL
-# Jalankan: streamlit run app.py
-
 import streamlit as st
 import random
 import time
@@ -13,9 +9,7 @@ from typing import Optional, Dict, List
 # Naikkan recursion limit agar aman untuk dataset besar
 sys.setrecursionlimit(15000)
 
-# ---------------------------
 # Binary Search Tree (BST)
-# ---------------------------
 class BSTNode:
     def __init__(self, key):
         self.key = key
@@ -81,9 +75,7 @@ class BST:
             node.right = self._delete(node.right, succ.key)
         return node
 
-# ---------------------------
 # AVL Tree (self-balancing)
-# ---------------------------
 class AVLNode:
     def __init__(self, key):
         self.key = key
@@ -204,9 +196,7 @@ class AVL:
             return self._rotate_left(node)
         return node
 
-# ---------------------------
 # Hash Table (wrapper dict)
-# ---------------------------
 class HashTable:
     def __init__(self):
         self.table: Dict[int, bool] = {}
@@ -221,9 +211,7 @@ class HashTable:
         if key in self.table:
             del self.table[key]
 
-# ---------------------------
 # Dataset generator (unik)
-# ---------------------------
 def generate_dataset(size: int, kind: str) -> List[int]:
     if size <= 0:
         return []
@@ -237,9 +225,7 @@ def generate_dataset(size: int, kind: str) -> List[int]:
     else:
         return random.sample(range(size * 10 + 100), size)
 
-# ---------------------------
 # Waktu operasi per struktur
-# ---------------------------
 def time_operation(struct_name: str, operation: str, keys: List[int], test_keys: List[int]) -> float:
     start = time.perf_counter()
 
@@ -308,9 +294,7 @@ def time_operation(struct_name: str, operation: str, keys: List[int], test_keys:
     end = time.perf_counter()
     return end - start
 
-# ---------------------------
 # Benchmark sekali untuk kombinasi size/kind/operation
-# ---------------------------
 def benchmark_once(size: int, kind: str, operation: str, struct_names: List[str], repeat: int = 3) -> pd.DataFrame:
     """
     Mengembalikan DataFrame dengan kolom:
@@ -351,9 +335,7 @@ def benchmark_once(size: int, kind: str, operation: str, struct_names: List[str]
         })
     return pd.DataFrame(results)
 
-# ---------------------------
 # Streamlit UI
-# ---------------------------
 st.set_page_config(page_title="Benchmark Struktur Data", layout="wide")
 st.title("Benchmarking Struktur Data: Search / Insert / Delete")
 st.markdown("Bandingkan performa struktur data: **list**, **BST**, **HashTable**, **AVL**.")
@@ -366,12 +348,7 @@ structures = st.sidebar.multiselect("Struktur data", options=['list', 'bst', 'ha
 repeat = st.sidebar.slider("Repeat per pengukuran", min_value=1, max_value=10, value=5)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Catatan**:")
-st.sidebar.markdown("- Pilih minimal satu opsi untuk setiap parameter.")
-st.sidebar.markdown("- Ukuran dataset: jumlah elemen dalam dataset.")
-st.sidebar.markdown("- Jenis dataset: urutan elemen dalam dataset.")
-st.sidebar.markdown("- Operasi yang diuji: operasi yang akan diuji performanya.")
-st.sidebar.markdown("- Struktur data: struktur data yang akan diuji.")
+st.sidebar.markdown("Tips: Untuk BST akan memakan waktu cukup lama jadi saya sarankan lakukan terakhir.")
 
 if st.sidebar.button("Jalankan Benchmark"):
     if not sizes or not kinds or not operations or not structures:
@@ -439,4 +416,4 @@ st.markdown("**Catatan**:")
 st.markdown("- Hasil bersifat tidak menentu. jalankan beberapa kali agar bisa mendapatkan hasil yang sesuai")
 st.markdown("- Jujur pas ngerun semuanya progresnya akan lama jadi saya sarankan untuk 1 per 1 saja. jika dipaksa sekaligus maka siapkan waktu 30 menit anda untuk memproses program ini")
 st.markdown("- Jika ingin mengubah alurnya tekan silang saja apa yang inin dihapus pada side bar")
-st.markdown("- BTR WWWWWWIIIIIIIIIIIIIIINNNNNNNNNNNNN!!!!!!!!!!!!!!!!!!!!!!")
+st.markdown("- #BTRGOESTOPARIS!")
